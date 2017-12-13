@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+
+  "name": "New tab editor",
+  "description": "This extension allows the user to have a nice blank page to write text right on the new tab page.",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html",
+    "default_title": "click here man"
+  },
+  "permissions": [
+    "activeTab",
+    "storage"
+  ]
+}
