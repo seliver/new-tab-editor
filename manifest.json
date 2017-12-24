@@ -1,17 +1,10 @@
 {
-  "manifest_version": 2,
-
-  "name": "New tab editor",
-  "description": "This extension allows the user to have a nice blank page to write text right on the new tab page.",
-  "version": "1.0",
-
-  "browser_action": {
-    "default_icon": "icon.png",
-    "default_popup": "popup.html",
-    "default_title": "click here man"
+  "name": "Blank new tab page",
+  "description": "Override the new tab page with a blank one",
+  "version": "0.2",
+  "incognito": "split",
+  "chrome_url_overrides": {
+    "newtab": "blank.html"
   },
-  "permissions": [
-    "activeTab",
-    "storage"
-  ]
+  "manifest_version": 2
 }
