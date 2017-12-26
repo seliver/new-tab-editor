@@ -1,6 +1,6 @@
 {
     "name": "New Tab Simple Text Editor",
-    "description": "A simple text editor that is shown on every new tab you open.",
+    "description": "A simple text editor that is shown on every new tab you open. And doesn't require any scary permission.",
 
     "version": "0.2",
     "incognito": "split",
