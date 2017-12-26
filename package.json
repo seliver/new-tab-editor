@@ -1,0 +1,24 @@
+{
+  "name": "new-tab-editor",
+  "version": "0.0.2",
+  "description": "",
+  "main": "scripts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://alex_sel@bitbucket.org/alex_sel/new-tab-editor.git"
+  },
+  "author": "Alexey Seliverstov",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/alex_sel/new-tab-editor#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "codemirror": "^5.33.0",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-clean-css": "^3.9.0",
+    "jquery": "^3.2.1",
+    "mustache": "^2.3.0"
+  }
+}

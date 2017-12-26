@@ -1,14 +1,25 @@
 <html>
  <head>
   <title>New Tab Editor</title>
-  <link rel="stylesheet" type="text/css" href="codemirror.css">
+  <link rel="stylesheet" type="text/css" href="css/vendors.css">
   <link rel="stylesheet" type="text/css" href="styles.css">
  </head>
  <body class="container">
-  <textarea id="editor"></textarea>
+  <div class="row">
+    <textarea id="editor"></textarea>
+    <div id="files" class="col-sm-6"></div>
+    <!-- @TODO mostrar o editor e os ficheiros no mesmo row -->
+  </div>
   <div id="info" class="text"></div>
-  <script src="codemirror.js"></script>
-  <script src="scripts.js"></script>
+  <script src="js/vendors.js"></script>
+  <script src="js/all.js"></script>
+    <script id="template" type="x-tmpl-mustache">
+        <ul class="nav nav-pills nav-stacked">
+            {{#files}}
+                <li role="presentation" class="{{class}} file" data-filename="{{name}}"><a href="#">{{name}}</a></li>
+            {{/files}}
+        </ul>
+    </script>
  </body>
 </html>
 
