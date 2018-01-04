@@ -54,7 +54,7 @@ var new_tab_editor = function(){
             console.log('saved')
             try {
                 var i = {};
-                i[new_tab_editor.file_id] = {'name': '', 'value': editor.getValue()};
+                i[new_tab_editor.file_id] = {'name': '', 'value': new_tab_editor.editor.getValue()};
                 chrome.storage.sync.set(i);
             } catch (err) {
                alert(err.message);
@@ -62,11 +62,14 @@ var new_tab_editor = function(){
         },
         timeout_id: null,
         keyup: function(){
-            if (timeout_id != -1) {
+            if (new_tab_editor.timeout_id != -1) {
                 clearTimeout(new_tab_editor.timeout_id)
             }
-            info.innerHTML = 'Length: '+editor.getValue().length;
-            timeout_id = setTimeout(new_tab_editor.saveFile, 3000);
+            new_tab_editor.calculateAndShowLength()
+            new_tab_editor.timeout_id = setTimeout(new_tab_editor.saveFile, 3000);
+        },
+        calculateAndShowLength: function(){
+            new_tab_editor.info.innerHTML = 'Length: '+new_tab_editor.editor.getValue().length;
         },
         loadFile: function(item){
             item = item.srcElement.parentElement 
@@ -75,9 +78,9 @@ var new_tab_editor = function(){
                 oldDoc.classList.toggle('active')
             new_tab_editor.file_id = item.id
             chrome.storage.sync.get(new_tab_editor.file_id, function(i) {
-                console.log(i)
                 new_tab_editor.editor.setValue(i[new_tab_editor.file_id].value);
                 new_tab_editor.editor.on("keyup", new_tab_editor.keyup);
+                new_tab_editor.calculateAndShowLength()
             });
             item.classList.toggle('active')
         },
@@ -85,7 +88,7 @@ var new_tab_editor = function(){
             console.log('deleting file')
         },
         renameFile: function(item){
-            console.log('renaming file')
+            item.srcElement.contentEditable=true
         }
     };
 }();
