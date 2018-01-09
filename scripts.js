@@ -42,7 +42,8 @@ var new_tab_editor = function(){
         init: function(){
             new_tab_editor.editor = CodeMirror.fromTextArea(
                 document.getElementById("editor"), {
-                    lineNumbers: true
+                    lineNumbers: true,
+                    lineWrapping: true
                 });
             new_tab_editor.loadFiles()
         },
