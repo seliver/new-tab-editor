@@ -7,7 +7,15 @@ var paths = {
     'node_modules/mustache/mustache.js',
     'node_modules/jquery/dist/jquery.js',
     'node_modules/codemirror/lib/codemirror.js',
-    'node_modules/bootstrap/dist/js/bootstrap.js'
+    'node_modules/bootstrap/dist/js/bootstrap.js',
+    'node_modules/vue/dist/vue.js'
+  ],
+  vendors_production_js: [
+    'node_modules/mustache/mustache.min.js',
+    'node_modules/jquery/dist/jquery.min.js',
+    'node_modules/codemirror/lib/codemirror.js',
+    'node_modules/bootstrap/dist/js/bootstrapmin.min.js',
+    'node_modules/vue/dist/vue.min.js'
   ],
   vendors_css: [
       'node_modules/codemirror/lib/codemirror.css',
@@ -27,9 +35,13 @@ gulp.task('js', function() {
       .pipe(concat('all.js'))
     .pipe(gulp.dest('js'));
 });
+gulp.task('vendor-production-js', function(){
+  return gulp.src(paths.vendors_js)
+      .pipe(concat('vendors.js'))
+    .pipe(gulp.dest('js'));
+});
 gulp.task('vendor-js', function(){
   return gulp.src(paths.vendors_js)
-//      .pipe(uglify())
       .pipe(concat('vendors.js'))
     .pipe(gulp.dest('js'));
 });
